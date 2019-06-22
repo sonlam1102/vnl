@@ -11,7 +11,11 @@ A small program for retrieving and managing Vietnamese locations such as: Provin
 3. Run **python manage.py migrate** to apply database models and location master data     
 4. Start django server by running **python manage.py runserver**
 
-# API
+# APIs
 - **/location/api/v1/provinces** (GET):  Return list of provinces   
 - **/location/api/v1/districts** (POST + payload: ***{ "province_id": "id"}*** ): List districts of province   
 - **/location/api/v1/wards** (POST + payload: ***{ "district_id": "id"}*** ): List wards of district    
+
+- **/location/api/v1/provinces/id** (GET) : Retrieve province by id
+- **/location/api/v1/districts/id** (GET) : Retrieve district by id
+- **/location/api/v1/wards/id** (GET) : Retrieve ward by id

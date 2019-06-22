@@ -4,7 +4,7 @@ from location.models import Province, District, Ward
 
 
 class ProvinceSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
+    id = serializers.CharField(read_only=True)
     name = serializers.CharField(read_only=True)
 
     class Meta:
@@ -14,7 +14,7 @@ class ProvinceSerializer(serializers.ModelSerializer):
 
 class DistrictSerializer(serializers.ModelSerializer):
     province_id = serializers.PrimaryKeyRelatedField(queryset=Province.objects.all(), write_only=True, required=True)
-    id = serializers.IntegerField(read_only=True)
+    id = serializers.CharField(read_only=True)
     name = serializers.CharField(read_only=True)
 
     class Meta:
@@ -24,7 +24,7 @@ class DistrictSerializer(serializers.ModelSerializer):
 
 class WardSerializer(serializers.ModelSerializer):
     district_id = serializers.PrimaryKeyRelatedField(queryset=District.objects.all(), write_only=True, required=True)
-    id = serializers.IntegerField(read_only=True)
+    id = serializers.CharField(read_only=True)
     name = serializers.CharField(read_only=True)
 
     class Meta:
